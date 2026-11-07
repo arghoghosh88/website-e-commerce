@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Approved UI_SPEC tokens. The homepage overrides background/card via .home-theme. */
+:root {
+  --background: #f2ede4;
+  --foreground: #352a24;
+  --card: #f8f5ef;
+  --card-foreground: #352a24;
+  --popover: #f8f5ef;
+  --popover-foreground: #352a24;
+  --primary: #292929;
+  --primary-foreground: #f8f5ef;
+  --secondary: #dcd1c3;
+  --secondary-foreground: #352a24;
+  --muted: #e9e2d7;
+  --muted-foreground: #6b5d53;
+  --accent: #dcd1c3;
+  --accent-foreground: #352a24;
+  --destructive: #7a2e2e;
+  --destructive-foreground: #f8f5ef;
+  --border: #dcd1c3;
+  --input: #dcd1c3;
+  --ring: #b89a67;
+  --radius: 0.5rem;
+
+  --espresso: #352a24;
+  --taupe: #dcd1c3;
+  --sage: #6f7d6b;
+  --gold: #b89a67;
+  --maroon: #7a2e2e;
+  --charcoal: #292929;
+  --footer: #211c19;
+  --cream: #f8f5ef;
+}
+
+.home-theme {
+  --background: #f5f0e8;
+  --card: #faf8f4;
+  --popover: #faf8f4;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-espresso: var(--espresso);
+  --color-taupe: var(--taupe);
+  --color-sage: var(--sage);
+  --color-gold: var(--gold);
+  --color-maroon: var(--maroon);
+  --color-charcoal: var(--charcoal);
+  --color-footer: var(--footer);
+  --color-cream: var(--cream);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
